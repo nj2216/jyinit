@@ -5,18 +5,25 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pyprojinit"
 version = "0.1.0"
-description = "pyprojinit — scaffold Python projects (CLI)"
-readme = "README.md"
-readme-content-type = "text/markdown"
-authors = [ { name = "Your Name", email = "you@example.com" } ]
+description = "pyprojinit - scaffold Python projects (CLI)"
+readme = { file = "README.md", content-type = "text/markdown" }
+authors = [
+    { name = "Jeevan N", email = "njeevan@gmail.com" }
+]
 license = { text = "MIT" }
 keywords = ["scaffold", "cookiecutter", "cli", "python"]
 classifiers = [
-  "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
 ]
 dependencies = []
 
 [project.scripts]
-pyprojinit = "pyprojinit:main"
+pyprojinit = "pyprojinit.pyprojinit:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
