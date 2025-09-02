@@ -29,6 +29,7 @@ import textwrap
 from pathlib import Path
 from datetime import date
 from typing import Dict, Optional, List
+import getpass
 
 YEAR = date.today().year
 
@@ -1821,7 +1822,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 """,
     "CC0-1.0": """CC0 1.0 Universal (Public Domain Dedication)
-    
+
 Authored by: {author} {year}
     
 No Copyright
@@ -2175,7 +2176,7 @@ def main(argv: Optional[list] = None) -> None:
 
         # fallback values
         license_id = args.license or 'MIT'
-        author = args.author or 'Your Name'
+        author = args.author or getpass.getuser()
         py_min = args.py or '3.8'
 
         create_project(
