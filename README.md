@@ -18,4 +18,3 @@ See `jyinit --help` for full options.
 ## Contributing
 
 Contributions welcome. Please open an issue or submit a PR.
----

@@ -299,29 +299,109 @@ def create_project(
 # -----------------------------
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog='jyinit', description='Scaffold Python projects quickly')
-    sub = p.add_subparsers(dest='cmd')
+    p = argparse.ArgumentParser(
+        prog="jyinit",
+        description="Scaffold Python projects quickly with templates, licenses, CI, git, and more.",
+        epilog="Run 'jyinit list-templates' to see available project templates and licenses."
+    )
+    sub = p.add_subparsers(dest="cmd", help="Subcommands")
 
-    create_p = sub.add_parser('create', help='Create a new project (supports multiple types)')
-    create_p.add_argument('name', help='root project name')
-    # support both legacy single --type and new --types
-    create_p.add_argument('--type', dest='type_single', help='(legacy) single project template')
-    create_p.add_argument('--types', nargs='+', help='one or more project templates', choices=list(TEMPLATES.keys()))
-    create_p.add_argument('--dir', default='.', help='directory to create project in')
-    create_p.add_argument('--license', default=None, choices=list(LICENSE_TEMPLATES.keys()), nargs='?', help='license')
-    create_p.add_argument('--author', default=None, help='author name for license')
-    create_p.add_argument('--py', default=None, help='minimum python version')
-    create_p.add_argument('--git', action='store_true', dest='git_init', help='initialize git repo for each subproject')
-    create_p.add_argument('--gitrep', nargs='?', const='', default=None, help='Initialize git and optionally set remote URL: --gitrep [url]')
-    create_p.add_argument('--venv', action='store_true', help='create .venv for each subproject')
-    create_p.add_argument('--no-tests', action='store_true', help='do not create tests folder')
-    create_p.add_argument('--ci', action='store_true', help='add GitHub Actions workflow for each subproject')
-    create_p.add_argument('--interactive', action='store_true', help='prompt for missing values interactively')
-    create_p.add_argument('--dry-run', action='store_true', help='show what would be created without writing files')
+    # -----------------------------
+    # create command
+    # -----------------------------
+    create_p = sub.add_parser(
+        "create",
+        help="Create a new project (supports single or multiple templates). ----------- use 'jyinit create --help' to know more"
+    )
+    create_p.add_argument(
+        "name",
+        help="Root project name (also used for directory name unless overridden by --dir)."
+    )
+    create_p.add_argument(
+        "--type",
+        dest="type_single",
+        help="(Legacy) Create a project using a single template (e.g. flask). "
+             "Prefer using --types instead."
+    )
+    create_p.add_argument(
+        "--types",
+        nargs="+",
+        choices=list(TEMPLATES.keys()),
+        help="One or more project templates to include (e.g. library flask fastapi)."
+    )
+    create_p.add_argument(
+        "--dir",
+        default=".",
+        help="Directory in which to create the project (default: current directory)."
+    )
+    create_p.add_argument(
+        "--license",
+        default=None,
+        choices=list(LICENSE_TEMPLATES.keys()),
+        nargs="?",
+        help="License to include (choose from available licenses, default: MIT)."
+    )
+    create_p.add_argument(
+        "--author",
+        default=None,
+        help="Author name to embed in license file (default: current system user)."
+    )
+    create_p.add_argument(
+        "--py",
+        default=None,
+        help="Minimum supported Python version (default: 3.8)."
+    )
+    create_p.add_argument(
+        "--git",
+        action="store_true",
+        dest="git_init",
+        help="Initialize a git repository for each subproject (no remote)."
+    )
+    create_p.add_argument(
+        "--gitrep",
+        nargs="?",
+        const="",
+        default=None,
+        help="Initialize git for each subproject and optionally set a remote. "
+             "Usage: --gitrep [url]. If provided without URL, only git init/commit is done. "
+             "If URL is given, origin remote is set and push attempted."
+    )
+    create_p.add_argument(
+        "--venv",
+        action="store_true",
+        help="Create a dedicated Python virtual environment (.venv) for each subproject."
+    )
+    create_p.add_argument(
+        "--no-tests",
+        action="store_true",
+        help="Do not create a 'tests/' folder with basic scaffolding."
+    )
+    create_p.add_argument(
+        "--ci",
+        action="store_true",
+        help="Add a tailored GitHub Actions workflow (.github/workflows/python-package.yml)."
+    )
+    create_p.add_argument(
+        "--interactive",
+        action="store_true",
+        help="Prompt for missing values interactively (license, author, templates, etc.)."
+    )
+    create_p.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview actions without creating files or running commands."
+    )
 
-    list_p = sub.add_parser('list-templates', help='List available templates')
+    # -----------------------------
+    # list-templates command
+    # -----------------------------
+    sub.add_parser(
+        "list-templates",
+        help="List all available templates and licenses bundled with jyinit."
+    )
 
     return p
+
 
 
 def prompt_if_missing(args: argparse.Namespace) -> argparse.Namespace:
