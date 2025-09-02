@@ -18,12 +18,11 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = []
-urls = {
-    Homepage = "https://github.com/nj2216/pyprojinit",
-    Documentation = "https://njeevan.vercel.app/pyprojinit",
-    Source = "https://github.com/nj2216/pyprojinit",
-    Issues = "https://github.com/nj2216/pyprojinit/issues"
-}
+[project.urls]
+Homepage = "https://github.com/nj2216/pyprojinit",
+Documentation = "https://njeevan.vercel.app/pyprojinit",
+Source = "https://github.com/nj2216/pyprojinit",
+Issues = "https://github.com/nj2216/pyprojinit/issues"
 
 [project.scripts]
 pyprojinit = "pyprojinit.__main__:main"
