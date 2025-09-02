@@ -19,9 +19,9 @@ classifiers = [
 ]
 dependencies = []
 [project.urls]
-Homepage = "https://github.com/nj2216/pyprojinit",
-Documentation = "https://njeevan.vercel.app/pyprojinit",
-Source = "https://github.com/nj2216/pyprojinit",
+Homepage = "https://github.com/nj2216/pyprojinit"
+Documentation = "https://njeevan.vercel.app/pyprojinit"
+Source = "https://github.com/nj2216/pyprojinit"
 Issues = "https://github.com/nj2216/pyprojinit/issues"
 
 [project.scripts]
