@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0", "wheel", "build"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyprojinit"
+name = "jyinit"
 version = "0.0.1"
-description = "pyprojinit - scaffold Python projects (CLI)"
+description = "jyinit - scaffold Python projects (CLI)"
 readme = { file = "README.md", content-type = "text/markdown" }
 authors = [
     { name = "Jeevan N", email = "njeevan@gmail.com" }
@@ -20,13 +20,13 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/nj2216/pyprojinit"
-Documentation = "https://njeevan.vercel.app/pyprojinit"
-Source = "https://github.com/nj2216/pyprojinit"
-Issues = "https://github.com/nj2216/pyprojinit/issues"
+Homepage = "https://github.com/nj2216/jyinit"
+Documentation = "https://njeevan.vercel.app/jyinit"
+Source = "https://github.com/nj2216/jyinit"
+Issues = "https://github.com/nj2216/jyinit/issues"
 
 [project.scripts]
-pyprojinit = "pyprojinit.__main__:main"
+jyinit = "jyinit.__main__:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

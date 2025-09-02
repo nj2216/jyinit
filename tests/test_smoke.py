@@ -1,7 +1,7 @@
 import tempfile
 from pathlib import Path
 
-from pyprojinit import main
+from jyinit import main
 
 
 def test_create_dry_run():

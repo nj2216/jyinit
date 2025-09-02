@@ -1,6 +1,6 @@
-# pyprojinit
+# jyinit
 
-`pyprojinit` is a small CLI utility to scaffold Python projects (libraries, apps, web services, ML projects and more).
+`jyinit` is a small CLI utility to scaffold Python projects (libraries, apps, web services, ML projects and more).
 
 ## Quickstart
 
@@ -9,10 +9,10 @@ Install from source (for development):
 ```bash
 python -m pip install -e .
 # then run
-pyprojinit create myproj --types library cli --license MIT --gitrep
+jyinit create myproj --types library cli --license MIT --gitrep
 ```
 
-See `pyprojinit --help` for full options.
+See `jyinit --help` for full options.
 
 
 ## Contributing
