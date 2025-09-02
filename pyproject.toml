@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jyinit"
-version = "0.0.1"
+version = "0.0.2"
 description = "jyinit - scaffold Python projects (CLI)"
 readme = { file = "README.md", content-type = "text/markdown" }
 authors = [
-    { name = "Jeevan N", email = "njeevan@gmail.com" }
+    { name = "Jeevan N", email = "njeevan2216@gmail.com" }
 ]
 license = { text = "MIT" }
 keywords = ["scaffold", "cookiecutter", "cli", "python"]
