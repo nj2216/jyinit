@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-pyprojinit
+pyprojinitx
 Extended Python project scaffolder.
 
 New in this update:
@@ -10,13 +10,13 @@ New in this update:
 
 Usage examples:
 - Interactive mode (prompts):
-  python pyprojinit.py create myproj --interactive
+  python pyprojinitx.py create myproj --interactive
 
 - Create flask app + CI + set remote and push (non-interactive):
-  python pyprojinit.py create myrepo --types flask --ci --gitrep https://github.com/you/myrepo.git
+  python pyprojinitx.py create myrepo --types flask --ci --gitrep https://github.com/you/myrepo.git
 
 - Create streamlit + mlops with venvs and per-subproject repos (no remote):
-  python pyprojinit.py create combo --types streamlit mlops --venv --gitrep
+  python pyprojinitx.py create combo --types streamlit mlops --venv --gitrep
 
 """
 
@@ -1981,7 +1981,7 @@ def create_project(
         project_root.mkdir(parents=True)
 
     # create a top-level README
-    top_readme = f"# {name}Monorepo created by pyprojinit. Contains: {', '.join(types)}"
+    top_readme = f"# {name}Monorepo created by pyprojinitx. Contains: {', '.join(types)}"
     if dry_run:
         print(f"[dry-run] Would create: {project_root}/README.md")
     else:
@@ -2080,7 +2080,7 @@ def create_project(
 # -----------------------------
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog='pyprojinit', description='Scaffold Python projects quickly')
+    p = argparse.ArgumentParser(prog='pyprojinitx', description='Scaffold Python projects quickly')
     sub = p.add_subparsers(dest='cmd')
 
     create_p = sub.add_parser('create', help='Create a new project (supports multiple types)')
