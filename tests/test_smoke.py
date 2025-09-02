@@ -1,7 +1,7 @@
 import tempfile
 from pathlib import Path
 
-from pyprojinitx import main
+from pyprojinit import main
 
 
 def test_create_dry_run():
