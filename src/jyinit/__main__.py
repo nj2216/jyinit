@@ -131,6 +131,24 @@ def ci_workflow_content(template: str, py_min: str) -> str:
               run: |
                 echo "Run server smoke checks" || true
         """)
+    
+    if template in ('library', 'package'):
+        return base + textwrap.dedent("""
+            - name: Install build tools
+                run: |
+                python -m pip install --upgrade pip
+                pip install build twine
+
+            - name: Build package
+                run: |
+                python -m build
+
+            - name: Publish to PyPI
+                uses: pypa/gh-action-pypi-publish@release/v1
+                with:
+                user: __token__
+                password: ${{ secrets.PYPI_API_TOKEN }}
+        """)
 
     if template == 'django':
         return base + textwrap.dedent("""
@@ -206,7 +224,7 @@ def create_project(
         project_root.mkdir(parents=True)
 
     # create a top-level README
-    top_readme = f"# {name}Monorepo created by jyinit. Contains: {', '.join(types)}"
+    top_readme = f"# {name} Monorepo created by jyinit. Contains: {', '.join(types)}"
     if dry_run:
         print(f"[dry-run] Would create: {project_root}/README.md")
     else:
