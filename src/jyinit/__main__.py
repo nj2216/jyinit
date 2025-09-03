@@ -32,6 +32,12 @@ from typing import Dict, Optional, List
 import getpass
 import json
 import importlib.resources as pkg_resources  # Python 3.9+
+from importlib.metadata import version, PackageNotFoundError
+
+try:
+    pkg_version = version("jyinit")
+except PackageNotFoundError:
+    pkg_version = "0.0.0 (dev)"
 
 def load_json_resource(package: str, filename: str):
     """Load JSON file from package resources (works inside pip-installed pkg)."""
@@ -303,6 +309,11 @@ def build_parser() -> argparse.ArgumentParser:
         prog="jyinit",
         description="Scaffold Python projects quickly with templates, licenses, CI, git, and more.",
         epilog="Run 'jyinit list-templates' to see available project templates and licenses."
+    )
+    p.add_argument(
+    "--version",
+    action="version",
+    version=f"jyinit {pkg_version}"
     )
     sub = p.add_subparsers(dest="cmd", help="Subcommands")
 
