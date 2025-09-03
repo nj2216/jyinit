@@ -415,41 +415,51 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 
+import argparse, re, sys
+from rich.console import Console
+from rich.prompt import Prompt, Confirm
+
+console = Console()
+
+DEFAULT_TEMPLATE = "library"
+DEFAULT_LICENSE = "MIT"
+DEFAULT_AUTHOR = "Your Name"
+DEFAULT_PY = "3.8"
+
 def prompt_if_missing(args: argparse.Namespace) -> argparse.Namespace:
     """If interactive flag is set, prompt for missing values and return updated args."""
-    if not getattr(args, 'interactive', False):
+    if not getattr(args, "interactive", False):
         return args
 
-    print('Interactive mode: answering prompts (press Enter to accept default shown in brackets)')
+    console.print("[bold cyan]Interactive mode[/bold cyan]: fill in missing options (press Enter to accept defaults).\n")
 
-    if not getattr(args, 'types', None) and not getattr(args, 'type_single', None):
-        choices = ', '.join(sorted(TEMPLATES.keys()))
-        val = input(f"Which templates do you want? (space-separated) [{choices}] ")
-        if val.strip():
-            args.types = val.split()
-        else:
-            # default to library
-            args.types = ['library']
+    try:
+        if not getattr(args, "types", None) and not getattr(args, "type_single", None):
+            choices = ", ".join(sorted(TEMPLATES.keys()))
+            console.print(f"[bold yellow]Available templates:[/bold yellow] {choices}")
+            val = Prompt.ask("Which template do you want?", default=DEFAULT_TEMPLATE)
+            args.types = [t.strip() for t in re.split(r"[, ]+", val) if t.strip()]
 
-    if not getattr(args, 'license', None):
-        licenses = ', '.join(sorted(LICENSE_TEMPLATES.keys()))
-        val = input(f"License [{ 'MIT' }], available: {licenses}: ")
-        args.license = val.strip() or 'MIT'
+        if not getattr(args, "license", None):
+            licenses = ", ".join(sorted(LICENSE_TEMPLATES.keys()))
+            console.print(f"[bold yellow]Available licenses:[/bold yellow] {licenses}")
+            args.license = Prompt.ask("License", default=DEFAULT_LICENSE)
 
-    if not getattr(args, 'author', None):
-        val = input('Author name [Your Name]: ')
-        args.author = val.strip() or 'Your Name'
+        if not getattr(args, "author", None):
+            args.author = Prompt.ask("Author name", default=DEFAULT_AUTHOR)
 
-    if not getattr(args, 'py', None):
-        val = input('Minimum Python version [3.8]: ')
-        args.py = val.strip() or '3.8'
+        if not getattr(args, "py", None):
+            args.py = Prompt.ask("Minimum Python version", default=DEFAULT_PY)
 
-    if getattr(args, 'gitrep', None) is None:
-        val = input('Initialize git for each subproject? (y/N) [N]: ')
-        if val.lower().startswith('y'):
-            val2 = input('Optional remote URL (leave empty to skip adding remote): ')
-            # argparse expects None if not provided, or '' if provided without URL; we store string
-            args.gitrep = val2.strip() if val2.strip() else ''
+        if getattr(args, "gitrep", None) is None:
+            init_git = Confirm.ask("Initialize git for each subproject?", default=False)
+            if init_git:
+                args.gitrep = Prompt.ask("Optional remote URL (leave empty to skip)", default="")
+            else:
+                args.gitrep = None
+    except KeyboardInterrupt:
+        console.print("\n[red]Aborted by user.[/red]")
+        sys.exit(1)
 
     return args
 
