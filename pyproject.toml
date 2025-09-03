@@ -20,8 +20,8 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/nj2216/jyinit"
-Documentation = "https://njeevan.vercel.app/jyinit"
+Homepage = "https://njeevan.vercel.app/jyinit"
+Documentation = "https://njeevan.vercel.app/jyinit-docs"
 Source = "https://github.com/nj2216/jyinit"
 Issues = "https://github.com/nj2216/jyinit/issues"
 
