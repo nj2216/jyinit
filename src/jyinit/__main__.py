@@ -44,9 +44,6 @@ def load_json_resource(package: str, filename: str):
     with pkg_resources.files(package).joinpath(filename).open("r", encoding="utf-8") as f:
         return json.load(f)
 
-# Example: assume templates.json and licenses.json live in pyprojinit/data/
-LICENSE_TEMPLATES = load_json_resource("jyinit.data", "licenses.json")
-
 
 YEAR = date.today().year
 
