@@ -451,13 +451,13 @@ def prompt_if_missing(args: argparse.Namespace) -> argparse.Namespace:
     try:
         if not getattr(args, "types", None) and not getattr(args, "type_single", None):
             choices = ", ".join(sorted(TEMPLATES.keys()))
-            console.print(f"[bold yellow]Available templates:[/bold yellow] {choices}")
+            console.print(f"[bold yellow]Available templates:[/bold yellow] {choices}\n")
             val = Prompt.ask("Which template do you want?", default=DEFAULT_TEMPLATE)
             args.types = [t.strip() for t in re.split(r"[, ]+", val) if t.strip()]
 
         if not getattr(args, "license", None):
             licenses = ", ".join(sorted(LICENSE_TEMPLATES.keys()))
-            console.print(f"[bold yellow]Available licenses:[/bold yellow] {licenses}")
+            console.print(f"[bold yellow]Available licenses:[/bold yellow] {licenses}\n")
             args.license = Prompt.ask("License", default=DEFAULT_LICENSE)
 
         if not getattr(args, "author", None):

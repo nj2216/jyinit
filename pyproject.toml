@@ -17,7 +17,9 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = []
+dependencies = [
+    "rich"
+]
 
 [project.urls]
 Homepage = "https://njeevan.vercel.app/jyinit"
