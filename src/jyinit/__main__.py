@@ -457,17 +457,17 @@ def prompt_if_missing(args: argparse.Namespace) -> argparse.Namespace:
 
         if not getattr(args, "license", None):
             licenses = ", ".join(sorted(LICENSE_TEMPLATES.keys()))
-            console.print(f"[bold yellow]Available licenses:[/bold yellow] {licenses}\n")
+            console.print(f"\n[bold yellow]Available licenses:[/bold yellow] {licenses}\n")
             args.license = Prompt.ask("License", default=DEFAULT_LICENSE)
 
         if not getattr(args, "author", None):
-            args.author = Prompt.ask("Author name", default=DEFAULT_AUTHOR)
+            args.author = Prompt.ask("\nAuthor name", default=DEFAULT_AUTHOR)
 
         if not getattr(args, "py", None):
-            args.py = Prompt.ask("Minimum Python version", default=DEFAULT_PY)
+            args.py = Prompt.ask("\nMinimum Python version", default=DEFAULT_PY)
 
         if getattr(args, "gitrep", None) is None:
-            init_git = Confirm.ask("Initialize git for each subproject?", default=False)
+            init_git = Confirm.ask("\nInitialize git for each subproject?", default=False)
             if init_git:
                 args.gitrep = Prompt.ask("Optional remote URL (leave empty to skip)", default="")
             else:

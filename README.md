@@ -29,7 +29,7 @@ pip install jyinit
 Or clone locally for development:
 
 ```bash
-git clone https://github.com/yourname/jyinit.git
+git clone https://github.com/nj2216/jyinit.git
 cd jyinit
 pip install -e .
 ```
@@ -146,7 +146,7 @@ pytest
 ## 📜 License
 
 jyinit is licensed under the **MIT License**.
-See [LICENSE](./LICENSE) for details.
+See [LICENSE](https://github.com/nj2216/jyinit/blob/main/LICENSE) for details.
 
 ---
 
@@ -154,4 +154,18 @@ See [LICENSE](./LICENSE) for details.
 
 Inspired by Python project cookiecutters, but with **interactive scaffolding, monorepo support, and built-in CI**.
 
-```
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! 🎉  
+Please see our [CONTRIBUTING.md](https://github.com/nj2216/jyinit/blob/main/CONTRIBUTING.md) for guidelines on how to report issues, propose changes, and submit pull requests.
+
+---
+
+## 🧑‍💻 Code of Conduct
+
+This project follows the [Contributor Covenant Code of Conduct](https://github.com/nj2216/jyinit/blob/main/CODE_OF_CONDUCT.md).  
+By participating, you are expected to uphold this code. Please report any unacceptable behavior to the maintainers.
+
+---
