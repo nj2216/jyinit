@@ -22,7 +22,7 @@ We welcome contributions of all kinds — bug reports, fixes, features, docs, or
 1. **Fork** the repo and create your branch:
    ```bash
    git checkout -b feature/your-feature
-```
+   ```
 
 2. **Install dependencies** for development:
     
