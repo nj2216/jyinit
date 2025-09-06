@@ -44,7 +44,7 @@ This Code of Conduct applies both within project spaces and in public spaces whe
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the maintainers at **[your-email@example.com]**. All complaints will be reviewed and investigated promptly and fairly.  
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the maintainers at **[njeevan2216@gmail.com]**. All complaints will be reviewed and investigated promptly and fairly.  
 
 All community leaders are obligated to respect the privacy and security of the reporter of any incident.
 

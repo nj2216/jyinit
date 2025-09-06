@@ -488,12 +488,13 @@ def main(argv: Optional[list] = None) -> None:
         return
 
     if args.cmd == 'list-templates':
-        print('Available templates:')
+        console.print('[bold blue]Available templates:[/bold blue]')
         for t in sorted(TEMPLATES.keys()):
-            print(' -', t)
-        print('Available licenses:')
+            console.print('[bold yellow] -[/bold yellow]', t)
+        console.print('[bold blue]Available licenses:[/bold blue]')
         for l in sorted(LICENSE_TEMPLATES.keys()):
-            print(' -', l)
+            console.print('[bold yellow] -[/bold yellow]', end=" ")
+            print(l)
         return
 
     if args.cmd == 'create':
