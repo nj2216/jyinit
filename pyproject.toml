@@ -24,8 +24,6 @@ classifiers = [
 dependencies = [
     "rich"
 ]
-license-files = ["LICENSE"]
-
 
 [project.urls]
 Homepage = "https://njeevan.vercel.app/jyinit"
