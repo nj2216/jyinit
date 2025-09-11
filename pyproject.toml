@@ -16,7 +16,6 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
-    "Organization :: Sri Sathya Sai Institute of Higher Learning",
 ]
 dependencies = [
     "rich"
@@ -27,7 +26,7 @@ Homepage = "https://njeevan.vercel.app/jyinit"
 Documentation = "https://njeevan.vercel.app/jyinit-docs"
 Source = "https://github.com/nj2216/jyinit"
 Issues = "https://github.com/nj2216/jyinit/issues"
-"SSSIHL" = "https://www.sssihl.edu.in/"
+SSSIHL = "https://www.sssihl.edu.in/"
 
 
 [project.scripts]
