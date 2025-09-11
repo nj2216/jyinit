@@ -4,15 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jyinit"
-version = "0.0.6"
+version = "0.0.7"
 description = "jyinit - scaffold Python projects (CLI)"
 readme = { file = "README.md", content-type = "text/markdown" }
 authors = [
     { name = "Jeevan N", email = "njeevan2216@gmail.com" }
-]
-maintainers = [
-    { name = "Jeevan N", email = "njeevan2216@gmail.com" },
-    { name = "Sri Sathya Sai Institute of Higher Learning" }
 ]
 license = { text = "MIT" }
 keywords = ["scaffold", "cookiecutter", "cli", "python"]
@@ -20,6 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Organization :: Sri Sathya Sai Institute of Higher Learning",
 ]
 dependencies = [
     "rich"
@@ -30,7 +27,7 @@ Homepage = "https://njeevan.vercel.app/jyinit"
 Documentation = "https://njeevan.vercel.app/jyinit-docs"
 Source = "https://github.com/nj2216/jyinit"
 Issues = "https://github.com/nj2216/jyinit/issues"
-Organization = "https://www.sssihl.edu.in/"
+"SSSIHL" = "https://www.sssihl.edu.in/"
 
 
 [project.scripts]
