@@ -11,7 +11,7 @@ authors = [
     { name = "Jeevan N", email = "njeevan2216@gmail.com" }
 ]
 maintainers = [
-    { name = "Jeevan N", email = "njeevan2216@gmail.com" }
+    { name = "Jeevan N", email = "njeevan2216@gmail.com" },
     { name = "Sri Sathya Sai Institute of Higher Learning" }
 ]
 license = { text = "MIT" }
@@ -24,6 +24,8 @@ classifiers = [
 dependencies = [
     "rich"
 ]
+license-files = ["LICENSE"]
+
 
 [project.urls]
 Homepage = "https://njeevan.vercel.app/jyinit"
@@ -43,4 +45,4 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.setuptools.package-data]
-jyinit = ["data/*.json"]
+jyinit = ["data/**/*.json"]
