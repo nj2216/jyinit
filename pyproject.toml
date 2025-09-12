@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jyinit"
-version = "0.0.7"
+version = "0.0.8"
 description = "jyinit - scaffold Python projects (CLI)"
 readme = { file = "README.md", content-type = "text/markdown" }
 authors = [
@@ -26,7 +26,7 @@ Homepage = "https://njeevan.vercel.app/jyinit"
 Documentation = "https://njeevan.vercel.app/jyinit-docs"
 Source = "https://github.com/nj2216/jyinit"
 Issues = "https://github.com/nj2216/jyinit/issues"
-SSSIHL = "https://www.sssihl.edu.in/"
+"ORG: SSSIHL" = "https://www.sssihl.edu.in/"
 
 
 [project.scripts]
